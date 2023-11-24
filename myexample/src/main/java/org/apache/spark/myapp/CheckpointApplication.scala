@@ -16,6 +16,7 @@ object CheckpointApplication extends App {
   mappedRDD.cache()
   val reducedRDD = mappedRDD.reduceByKey((x, y) => x + "_" + y, 2)
   reducedRDD.cache()
+//  reducedRDD.ch
   reducedRDD.checkpoint()
   reducedRDD.foreach(println)
   val groupedRDD = mappedRDD.groupByKey().mapValues(v => v.toList)
