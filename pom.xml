@@ -104,7 +104,8 @@
     <module>connector/connect/common</module>
     <module>connector/connect/client/jvm</module>
     <module>connector/protobuf</module>
-    <!-- See additional modules enabled by profiles below -->
+    <module>myexample</module>
+      <!-- See additional modules enabled by profiles below -->
   </modules>
 
   <properties>
