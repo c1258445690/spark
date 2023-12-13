@@ -7,7 +7,7 @@ import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.expressions.Attribute
 import org.apache.spark.sql.execution.{LimitExec, SparkPlan}
 
-object CaseClassDemo extends App {
+object ScalaLangDemo extends App {
   case class CollectLimitExec(limit: Int = -1, child: SparkPlan, offset: Int = 0) extends LimitExec {
     override def output: Seq[Attribute] = ???
 
@@ -19,5 +19,13 @@ object CaseClassDemo extends App {
      * Overridden by concrete implementations of SparkPlan.
      */
     override protected def doExecute(): RDD[InternalRow] = ???
+  }
+
+  class SeqImpl extends Seq[String]{
+    override def length: Int = ???
+
+    override def apply(idx: Int): String = ???
+
+    override def iterator: Iterator[String] = ???
   }
 }
