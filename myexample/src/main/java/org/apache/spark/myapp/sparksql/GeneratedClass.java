@@ -3,8 +3,9 @@ package org.apache.spark.myapp.sparksql;
 import org.apache.spark.sql.catalyst.InternalRow;
 import org.apache.spark.unsafe.types.UTF8String;
 
-public class WholeStageCodegenResult {
-    //    全阶段代码生成结果,对应的SQL：select name from student where age > 18
+//    全阶段代码生成结果,对应的SQL：select name from student where age > 18
+public class GeneratedClass extends org.apache.spark.sql.catalyst.expressions.codegen.GeneratedClass {
+
     public Object generate(Object[] references) {
         return new GeneratedIteratorForCodegenStage1(references);
     }
