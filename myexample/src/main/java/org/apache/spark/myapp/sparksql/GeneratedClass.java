@@ -12,6 +12,7 @@ public class GeneratedClass extends org.apache.spark.sql.catalyst.expressions.co
 
     /*wsc_codegenPipeline*/
     /*wsc_codegenStageId*/
+    //每个分区创建一个BufferedRowIterator，并且调用init方法初始化
     final class GeneratedIteratorForCodegenStage1 extends org.apache.spark.sql.execution.BufferedRowIterator {
         private Object[] references;
         private scala.collection.Iterator[] inputs;
@@ -22,7 +23,8 @@ public class GeneratedClass extends org.apache.spark.sql.catalyst.expressions.co
             this.references = references;
         }
 
-        public void init(int index, scala.collection.Iterator[] inputs) {
+        //调用者：WholeStageCodegenExec.doExecute
+        public void init(int index/*分区号*/, scala.collection.Iterator[] inputs/*每个分区的数据，数组只有一个元素*/) {
             partitionIndex = index;
             this.inputs = inputs;
             inputadapter_input_0 = inputs[0];
